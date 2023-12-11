@@ -1,11 +1,18 @@
 import Logo from "./Logo";
 import SocilaLogo from "./SocilaLogo";
 import { RxCross2 } from "react-icons/rx";
+import {Link} from "react-scroll"
+import "./ActiveMenu.css"
 
 const MobileMenu = ({isMenu, setIsMenu}) => {
+
+    const handleSetActive = (to) => {
+        console.log(to);
+    };
+
     return (
         <div className="lg:hidden">
-            <div className="opacityDiv hidden w-full z-40 h-full backdrop-blur-lg bg-black bg-opacity-40 fixed top-0 left-0  "></div>
+            <div className="opacityDiv hidden w-full  z-[9999] h-full backdrop-blur-lg bg-black bg-opacity-40 fixed top-0 left-0  "></div>
             <div className={`w-[70%]  z-[100] transition-all duration-500 bg-[#000] h-screen fixed left-0 top-0 overflow-y-auto ${isMenu ? 'translate-x-0':'-translate-x-[100%]'} `}>
                 <div>
                     <ul className="px-4  space-y-5 flex  flex-col">
@@ -30,11 +37,97 @@ const MobileMenu = ({isMenu, setIsMenu}) => {
                             </p>
                         </li>
                         <li className="flex-grow h-full">
-                            <ul>
-                                <li className="border-b border-gray-800"><a className="text-gray-400 text-lg w-full hover:text-primary py-1 inline-block transition-all duration-300 " href="#">Home</a></li>
-                                <li className="border-b border-gray-800"><a className="text-gray-400 text-lg w-full hover:text-primary py-1 inline-block transition-all duration-300 " href="#">About</a></li>
-                                <li className="border-b border-gray-800"><a className="text-gray-400 text-lg w-full hover:text-primary py-1 inline-block transition-all duration-300 " href="#">Pages</a></li>
-                                <li className=""><a className="text-gray-400 text-lg w-full hover:text-primary py-1 inline-block transition-all duration-300 " href="#">Elements</a></li>
+                            <ul className="activeMenu">
+                                <li className="border-b border-gray-800">
+                                    <Link 
+                                    onSetActive={handleSetActive}
+                                    onClick={() => setIsMenu(false)} to="hero" 
+                                    spy={true} 
+                                    smooth={true} 
+                                    offset={0} 
+                                    duration={500}  
+                                    className="text-gray-400 text-lg w-full cursor-pointer hover:text-primary py-1 inline-block transition-all duration-300 " >
+                                        Home
+                                    </Link>
+                                </li>
+                                <li className="border-b border-gray-800">
+                                    <Link 
+                                    onSetActive={handleSetActive}
+                                    onClick={() => setIsMenu(false)} to="service" 
+                                    spy={true} 
+                                    smooth={true} 
+                                    offset={0} 
+                                    duration={500}  
+                                    className="text-gray-400 text-lg w-full cursor-pointer hover:text-primary py-1 inline-block transition-all duration-300 " >
+                                        Service
+                                    </Link>
+                                </li>
+                                <li className="border-b border-gray-800">
+                                    <Link 
+                                    onSetActive={handleSetActive}
+                                    onClick={() => setIsMenu(false)}
+                                    to="about" 
+                                    spy={true} 
+                                    smooth={true} 
+                                    offset={0} 
+                                    duration={500}  
+                                    className="text-gray-400 text-lg w-full cursor-pointer hover:text-primary py-1 inline-block transition-all duration-300 " >
+                                        About
+                                    </Link>
+                                </li>
+                                <li className="border-b border-gray-800">
+                                    <Link 
+                                    onSetActive={handleSetActive}
+                                    onClick={() => setIsMenu(false)}
+                                    to="education" 
+                                    spy={true} 
+                                    smooth={true} 
+                                    offset={0} 
+                                    duration={500}  
+                                    className="text-gray-400 text-lg w-full cursor-pointer hover:text-primary py-1 inline-block transition-all duration-300 " >
+                                        Education 
+                                    </Link>
+                                </li>
+                                <li className="border-b border-gray-800">
+                                    <Link 
+                                    onSetActive={handleSetActive}
+                                    onClick={() => setIsMenu(false)}
+                                    to="skills" 
+                                    spy={true} 
+                                    smooth={true} 
+                                    offset={0} 
+                                    duration={500}  
+                                    className="text-gray-400 text-lg w-full cursor-pointer hover:text-primary py-1 inline-block transition-all duration-300 " >
+                                        Skills
+                                    </Link>
+                                </li>
+                                <li className="border-b border-gray-800">
+                                    <Link 
+                                    onSetActive={handleSetActive}
+                                    onClick={() => setIsMenu(false)}
+                                    to="projects" 
+                                    spy={true} 
+                                    smooth={true} 
+                                    offset={0} 
+                                    duration={500}  
+                                    className="text-gray-400 text-lg w-full cursor-pointer hover:text-primary py-1 inline-block transition-all duration-300 " >
+                                        Projects
+                                    </Link>
+                                </li>
+                                <li className="border-b border-gray-800">
+                                    <Link 
+                                    onSetActive={handleSetActive}
+                                    onClick={() => setIsMenu(false)}
+                                    to="contact" 
+                                    spy={true} 
+                                    smooth={true} 
+                                    offset={0} 
+                                    duration={500}  
+                                    className="text-gray-400 text-lg w-full cursor-pointer hover:text-primary py-1 inline-block transition-all duration-300 " >
+                                        Contact Us
+                                    </Link>
+                                </li>
+                              
                               
                             </ul>
                         </li>

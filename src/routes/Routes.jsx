@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ContactUs from "../pages/ContactUs";
 
 
 const myRoutes = createBrowserRouter([
@@ -18,6 +19,10 @@ const myRoutes = createBrowserRouter([
             {
                 path: "/login",
                 element : <Login />
+            },
+            {
+                path: "/contact",
+                element : <ContactUs />
             },
             {
                 path: "/register",
