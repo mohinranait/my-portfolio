@@ -84,7 +84,7 @@ const Header = ({isMenu, setIsMenu, isContactDoyar, setIsContactDoyar}) => {
                                     to="skills" 
                                     spy={true} 
                                     smooth={true} 
-                                    offset={-20} 
+                                    offset={-10} 
                                     duration={500} 
                                     className="headerNavLink" >Skills
                                     </Link>
@@ -94,7 +94,7 @@ const Header = ({isMenu, setIsMenu, isContactDoyar, setIsContactDoyar}) => {
                                     to="projects" 
                                     spy={true} 
                                     smooth={true} 
-                                    offset={-20} 
+                                    offset={-10} 
                                     duration={500} 
                                     className="headerNavLink" >Projects
                                     </Link>
@@ -104,7 +104,7 @@ const Header = ({isMenu, setIsMenu, isContactDoyar, setIsContactDoyar}) => {
                                     to="contact" 
                                     spy={true} 
                                     smooth={true} 
-                                    offset={-20} 
+                                    offset={-10} 
                                     duration={500} 
                                     className="headerNavLink" >Contact
                                     </Link>

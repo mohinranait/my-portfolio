@@ -4,7 +4,7 @@
 const EducationCard = ({education}) => {
     const { title, date, description} = education || {};
     return (
-        <div className='mb-8'>
+        <div className='mb-8' data-aos="fade-up">
             <div className='mb-3'>
                 <span className='py-3 px-5 inline-block border-primary border bg-transparent text-primary'>{date}</span>
             </div>

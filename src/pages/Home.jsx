@@ -2,18 +2,28 @@ import EducationCard from "../components/EducationCard";
 import ProjectCard from "../components/ProjectCard";
 import ServiceCard from "../components/ServiceCard";
 import { LiaFileDownloadSolid } from "react-icons/lia";
-import { FaUser } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaTwitter, FaUser } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
+import jsImg from "../../public/img-icon/js.webp"
+import reactImg from "../../public/img-icon/react.png"
+import reduxImg from "../../public/img-icon/redux.png"
+import expressImg from "../../public/img-icon/express.webp"
+import mongodbImg from "../../public/img-icon/mongodb.png"
+import tailwindImg from "../../public/img-icon/tailwindcss.png"
+import nextJsImg from "../../public/img-icon/nextjs.png"
+import nodejsImg from "../../public/img-icon/nodejs.png"
 
 
-import { jsPDF } from "jspdf";
 import p1 from "../../public/p1.png"
 import p2 from "../../public/p2.png"
 import p3 from "../../public/p3.png"
 import ContactForm from "../components/ContactForm";
 import SectionTitle from "../components/SectionTitle";
-const resume = "https://raw.githubusercontent.com/mohinranait/mohinranait/main/images/MERN%20Stack%20Developer.png"
+import { TypeAnimation } from "react-type-animation";
+import { useEffect } from "react";
+import AOS from 'aos'
+import 'aos/dist/aos.css';
 
 const educations = [
     {
@@ -93,36 +103,61 @@ const projects = [
     
 ]
 
+const myTitles = [
+    // Same substring at the start will only be typed once, initially
+    'Developer',
+    2000,
+    'Designer',
+    2000,
+    'Man',
+    2000,
+    'Coder',
+    2000,
+]
+
 const Home = () => {
 
-    const downloadPdf = () => {
-        const doc = new jsPDF();
-        doc.addImage(resume,"PDF",1,1)
-        doc.save(`${new Date()}.pdf`);
-    }
+    useEffect(() => {
+        AOS.init();
+    },[])
 
     return (
         <>
             <section id="hero" className="" style={{backgroundImage:`url('https://wp.shsarker.xyz/zyan/wp-content/uploads/2023/10/banner-scaled.jpg')`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize:"cover"}}>
                 <div className=" py-16">
                     <div className="container lg:w-[1100px] md:px-0 min-h-screen flex items-center justify-center px-5 ">
-                        <div className="grid mt-20 lg:mt-0 grid-cols-1 lg:grid-cols-2 items-center gap-y-10 lg:gap-y-0 md:gap-5">
-                            <div className="order-2 lg:order-1">
+                        <div className="grid mt-20 lg:mt-0 grid-cols-1 lg:grid-cols-12 items-center gap-y-10 lg:gap-y-0 md:gap-5">
+                            <div className="hidden lg:block col-span-1">
+                                <ul className="space-y-7">
+                                    <li><a href="https://github.com/mohinranait" target="_blank" rel="noreferrer" className="text-primary " ><FaGithub size={25} /></a></li>
+                                    <li><a href="https://www.linkedin.com/in/mohinrana" target="_blank" rel="noreferrer" className="text-primary " ><FaLinkedinIn size={25} /></a></li>
+                                    <li><a href="https://twitter.com/MDEbrahim555199" target="_blank" rel="noreferrer" className="text-primary " ><FaTwitter size={25} /></a></li>
+                                </ul>
+                            </div>
+                            <div className="lg:col-span-6 order-2 lg:order-1">
                                 <div className=" space-y-4 md:space-y-6 lg:space-y-8">
                                     <div>
                                         <span className="uppercase text-white bg-[#55e6a531] font-semibold rounded py-2 px-4 text-sm">MERN Stack develoepr</span>
                                     </div>
-                                    <h1 className="text-3xl leading-[40px] md:text-5xl md:leading-[60px] lg:text-5xl lg:leading-[65px] xl:text-6xl font-bold xl:leading-[75px] text-white"> I'm Ebrahim <br /> Creative<span className="bg-gradient-to-l to-[#03e37e] from-[#04f872] bg-clip-text text-transparent">Developer</span> </h1>
+                                    <h1 className="text-3xl leading-[40px] md:text-5xl md:leading-[60px] lg:text-5xl lg:leading-[65px] xl:text-6xl font-bold xl:leading-[75px] text-white"> I'm Ebrahim <br /> Creative
+                                        <span className="bg-gradient-to-l to-[#03e37e] from-[#04f872] bg-clip-text text-transparent">
+                                            <TypeAnimation
+                                                sequence={myTitles}
+                                                speed={10}
+                                                repeat={Infinity}
+                                            />
+                                        </span> 
+                                    </h1>
                                     <p className="text-white">Hello! I'm Ebrahim, a dedicated MERN stack developer with a passion for crafting seamless web experiences. I specialize in leveraging the power of MongoDB, Express.js, React, and Node.js to build robust and responsive applications. From designing efficient databases to creating intuitive user interfaces.I am always eager to tackle new challenges and stay at the forefront of web development trends.</p>
                                     <div className="flex items-center gap-x-3">
                                        
-                                            <a onClick={() => downloadPdf()} className="flex items-center py-3 gap-1  flex-nowrap  text-gray-900 hover:bg-[#0F1722] transition-all hover:text-white bg-primary   px-5 cursor-pointer font-semibold duration-500">
-                                               <LiaFileDownloadSolid /> Download CV
-                                            </a>
+                                        <a href="https://drive.google.com/uc?export=download&id=1OD1XMhwuy7-gycJEu5waBfHC1vDPKhkB" className="flex items-center py-3 gap-1  flex-nowrap  text-gray-900 hover:bg-[#0F1722] transition-all hover:text-white bg-primary   px-5 cursor-pointer font-semibold duration-500">
+                                            <LiaFileDownloadSolid /> Download CV
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div className="order-1 lg:order-2">
+                            <div className="lg:col-span-5 order-1 lg:order-2">
                                 <div className="relative flex justify-center items-center">
                                     <figure className="w-64 h-64 rounded-full bg-red-200 overflow-hidden">
                                         <img className={`w-64 h-64 rounded-full`} src="https://avatars.githubusercontent.com/u/99636383?v=4"  alt="Banner" />
@@ -136,10 +171,10 @@ const Home = () => {
 
 
             <section id="service" className="pt-20 pb-10">
-                <SectionTitle textAlign="center"  margin={'auto'} title={'My Services'} subTitle={'Crafting stories through design and innovation'} />
+                <SectionTitle  textAlign="center"  margin={'auto'} title={'My Services'} subTitle={'Crafting stories through design and innovation'} />
                
                 <div className="container lg:w-[1100px] pt-28 px-5 md:px-0">
-                    <div className="grid md:grid-cols-3 gap-5">
+                    <div className="grid md:grid-cols-3 gap-5" data-aos="fade-up">
                         {
                             services?.map(item => <ServiceCard key={item?._id} service={item} /> )
                         }
@@ -159,9 +194,9 @@ const Home = () => {
                                     <div className="w-24 h-[3px] bg-gray-400 "></div>
                                 </div>
                                <div>
-                                    <p className="text-gray-400 mb-10">I am a passionate and results-driven MERN stack developer with a strong foundation in building dynamic and responsive web applications. My journey in the world of web development began with a curiosity about creating seamless user experiences and has since evolved into a deep expertise in the MERN stack.</p>
-                                    <div>
-                                        <a onClick={() => downloadPdf()}  className=" py-4 items-center  flex-nowrap  text-gray-900 hover:bg-[#0F1722] transition-all hover:text-white bg-primary   px-5  font-semibold duration-500">
+                                    <p data-aos="fade-up" className="text-gray-400 mb-10">I am a passionate and results-driven MERN stack developer with a strong foundation in building dynamic and responsive web applications. My journey in the world of web development began with a curiosity about creating seamless user experiences and has since evolved into a deep expertise in the MERN stack.</p>
+                                    <div data-aos="fade-up">
+                                        <a href="https://drive.google.com/uc?export=download&id=1OD1XMhwuy7-gycJEu5waBfHC1vDPKhkB"  className=" py-4 items-center  flex-nowrap  text-gray-900 hover:bg-[#0F1722] transition-all hover:text-white bg-primary   px-5  font-semibold duration-500">
                                             <span className=" text-sm  lg:text-base  text-center inline-flex items-center gap-1 "> <LiaFileDownloadSolid /> Download CV</span>
                                         </a>
                                     </div>
@@ -170,7 +205,7 @@ const Home = () => {
                         </div>
                         <div className="flex">
                             <div>
-                                <div className="relative">
+                                <div className="relative" data-aos="fade-up">
                                     <span className="w-[250px] h-[400px] bg-primary absolute -top-5 -right-5"></span>
                                     <img className="z-50 relative" src="https://wp.shsarker.xyz/zyan/wp-content/uploads/2023/10/about_img.jpg" alt="" />
                                 </div>
@@ -186,7 +221,7 @@ const Home = () => {
                 <SectionTitle textAlign="center"  margin={'auto'} title={'Educations'} subTitle={'Showcasing my talent amplifying my impact'} />
                 
                 <div className="container lg:w-[1100px] pt-28 px-5 md:px-0">
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-2 gap-6" data-aos="fade-up">
                         {
                             educations?.map(education => <EducationCard key={education?._id} education={education} /> )
                         }
@@ -196,23 +231,23 @@ const Home = () => {
 
 
             {/* Skills */}
-            <section id="skills" className="pt-10 pb-28">
+            <section id="skills"  className="pt-10 pb-28">
                 <div className="container lg:w-[1100px] px-5 md:px-0">
                     <div className="grid  md:grid-cols-2 gap-5">
                         <div className="space-y-5 mb-12 md:mb-0">
                             <SectionTitle textAlign="left"  margin={'auto'} title={'Currently Learning'} subTitle={'Which I am currently learning.'} />
                               
-                            <div className="service ">
+                            <div className="service " data-aos="fade-up">
                                 <span className="text-white ml-14">Next JS</span>
                                 <span className="serviceIcon">
-                                    <img className="w-10" src="https://static-00.iconduck.com/assets.00/nextjs-icon-2048x1234-pqycciiu.png" alt="" />
+                                    <img className="w-10" src={nextJsImg} alt="" />
                                 </span>
                                 <span className="bg-primary h-[6px] w-[40%] absolute bottom-0 left-0"></span>
                             </div>
-                            <div className="service ">
+                            <div className="service " data-aos="fade-up">
                                 <span className="text-white ml-14">Redux</span>
                                 <span className="serviceIcon">
-                                    <img className="w-10" src="https://assets.stickpng.com/images/5848309bcef1014c0b5e4a9a.png" alt="" />
+                                    <img className="w-10" src={reduxImg} alt="" />
                                 </span>
                                 <span className="bg-primary h-[6px] w-[30%] absolute bottom-0 left-0"></span>
                             </div>
@@ -220,45 +255,45 @@ const Home = () => {
                         <div className="space-y-5">
                             <SectionTitle textAlign="left"  margin={'auto'} title={'Special Skills'} subTitle={'My Special Skills filed hire'} />
                             
-                            <div className="service">
+                            <div className="service" data-aos="fade-up">
                                 <span className="text-white ml-14">JavaScript</span>
                                 <span className="serviceIcon">
-                                    <img className="w-10" src="https://static.vecteezy.com/system/resources/previews/027/127/463/original/javascript-logo-javascript-icon-transparent-free-png.png" alt="" />
+                                    <img className="w-10" src={jsImg} alt="" />
                                 </span>
                                 <span className="bg-primary h-[6px] w-[85%] absolute bottom-0 left-0"></span>
                             </div>
-                            <div className="service ">
+                            <div className="service " data-aos="fade-up">
                                 <span className="text-white ml-14">React JS</span>
                                 <span className="serviceIcon">
-                                    <img className="w-10" src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt="" />
+                                    <img className="w-10" src={reactImg} alt="" />
                                 </span>
                                 <span className="bg-primary h-[6px] w-[90%] absolute bottom-0 left-0"></span>
                             </div>
-                            <div className="service ">
+                            <div className="service " data-aos="fade-up">
                                 <span className="text-white ml-14">Node JS</span>
                                 <span className="serviceIcon">
-                                    <img className="w-10" src="https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png" alt="" />
+                                    <img className="w-10" src={nodejsImg} alt="" />
                                 </span>
                                 <span className="bg-primary h-[6px] w-[70%] absolute bottom-0 left-0"></span>
                             </div>
-                            <div className="service ">
+                            <div className="service " data-aos="fade-up">
                                 <span className="text-white ml-14">Express JS</span>
                                 <span className="serviceIcon">
-                                    <img className="w-10" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/express-js-icon.png" alt="" />
+                                    <img className="w-10" src={expressImg} alt="" />
                                 </span>
                                 <span className="bg-primary h-[6px] w-[80%] absolute bottom-0 left-0"></span>
                             </div>
-                            <div className="service ">
+                            <div className="service " data-aos="fade-up">
                                 <span className="text-white ml-14">MongoDB</span>
                                 <span className="serviceIcon">
-                                    <img className="w-10" src="https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Image-HD.png" alt="" />
+                                    <img className="w-10" src={mongodbImg} alt="" />
                                 </span>
                                 <span className="bg-primary h-[6px] w-[85%] absolute bottom-0 left-0"></span>
                             </div>
-                            <div className="service ">
+                            <div className="service " data-aos="fade-up">
                                 <span className="text-white ml-14">Tailwindcss</span>
                                 <span className="serviceIcon">
-                                    <img className="w-10" src="https://branditechture.agency/brand-logos/wp-content/uploads/wpdm-cache/Tailwind-CSS1-900x0.png" alt="" />
+                                    <img className="w-10" src={tailwindImg} alt="" />
                                 </span>
                                 <span className="bg-primary h-[6px] w-[95%] absolute bottom-0 left-0"></span>
                             </div>
@@ -290,10 +325,10 @@ const Home = () => {
                 <div className="container lg:w-[1100px] px-5 lg:px-0 mt-16">
                     <div className="grid lg:grid-cols-2 gap-8">
                         <div>
-                            <p className="text-2xl font-bold text-white mb-2">Get in Touch</p>
-                            <p className="text-base font-medium text-gray-500">I am a hard-working, reliable web developer. I love being in this line of work because I am passionate about technology, design, and innovation.</p>
+                            <p className="text-2xl font-bold text-white mb-2" data-aos="fade-up">Get in Touch</p>
+                            <p className="text-base font-medium text-gray-500" data-aos="fade-up">I am a hard-working, reliable web developer. I love being in this line of work because I am passionate about technology, design, and innovation.</p>
                             <ul className="space-y-6 mt-5">
-                                <li className="flex items-center gap-8">
+                                <li className="flex items-center gap-8" data-aos="fade-up">
                                     <div>
                                         <FaUser size={30} className="text-white" />
                                     </div>
@@ -302,7 +337,7 @@ const Home = () => {
                                         <p className="text-base font-medium text-gray-500">Md. Ebrahim</p>
                                     </div>
                                 </li>
-                                <li className="flex items-center gap-8">
+                                <li className="flex items-center gap-8" data-aos="fade-up">
                                     <div>
                                         <MdOutlineEmail size={30} className="text-white" />
                                     </div>
@@ -311,7 +346,7 @@ const Home = () => {
                                         <p className="text-base font-medium text-gray-500">ebrahimit49@gmail.com</p>
                                     </div>
                                 </li>
-                                <li className="flex items-center gap-8">
+                                <li className="flex items-center gap-8" data-aos="fade-up">
                                     <div>
                                         <FaLocationDot size={30} className="text-white" />
                                     </div>
@@ -322,7 +357,7 @@ const Home = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div>
+                        <div data-aos="fade-up">
                             <ContactForm />
                         </div>
                     </div>
