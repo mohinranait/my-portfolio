@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Logo from "./Logo";
 import SocilaLogo from "./SocilaLogo";
 import { RxCross2 } from "react-icons/rx";
@@ -29,7 +30,7 @@ const MobileMenu = ({isMenu, setIsMenu}) => {
                         <li>
                             <p className="text-gray-500 text-base flex mb-2 items-center gap-x-2"> 
                                 <span><i className="far fa-envelope"></i></span>
-                                <span>example@gmail.com</span>
+                                <span>ebrahimit49@gmail.com</span>
                             </p>
                             <p className="text-gray-500 text-base flex items-center gap-x-2"> 
                                 <span><i className="fas fa-phone-alt"></i></span>

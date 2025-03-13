@@ -2,7 +2,7 @@ import EducationCard from "../components/EducationCard";
 import ProjectCard from "../components/ProjectCard";
 import ServiceCard from "../components/ServiceCard";
 import { LiaFileDownloadSolid } from "react-icons/lia";
-import { FaGithub, FaLinkedinIn, FaTwitter, FaUser } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaReact, FaTwitter, FaUser } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import jsImg from "../../public/img-icon/js.webp"
@@ -18,6 +18,8 @@ import nodejsImg from "../../public/img-icon/nodejs.png"
 import p1 from "../../public/p1.png"
 import p2 from "../../public/p2.png"
 import p3 from "../../public/p3.png"
+import p4 from "../../public/p4.png"
+import p5 from "../../public/p5.png"
 import ContactForm from "../components/ContactForm";
 import SectionTitle from "../components/SectionTitle";
 import { TypeAnimation } from "react-type-animation";
@@ -79,10 +81,26 @@ const projects = [
     {
         _id: 1,
         image :p1,
-        title: 'Ecommerce webiste using MERN',
+        title: 'StoreMI - MERN',
         demo: 'https://uminex-mern-app.web.app/',
         github: 'https://github.com/mohinranait/uminex-ecommerce-client',
         details : "Best and featured website for mobile selling. Here the mobile can be selected by selecting the variant of the mobile.",
+    },
+    {
+        _id: 5,
+        image :p5,
+        title: 'HouseRent - MERN',
+        demo: 'https://rent-house-using-nextjs.vercel.app/',
+        github: 'https://github.com/mohinranait/houseRent-task-using-nextjs?tab=readme-ov-file',
+        details : "Here a appoinment use can be published with all the information of a appoinment. And the user can book that booking appoinment month by month.",
+    },
+    {
+        _id: 4,
+        image :p4,
+        title: 'CourseLog - MERN',
+        demo: 'https://online-course-silling-website.web.app/',
+        github: 'https://github.com/mohinranait/online-course-selling',
+        details : "Online course selling website. It's mobile friendly and multi-functionality features",
     },
     {
         _id: 2,
@@ -151,7 +169,7 @@ const Home = () => {
                                     <p className="text-white">Hello! I'm Ebrahim, a dedicated MERN stack developer with a passion for crafting seamless web experiences. I specialize in leveraging the power of MongoDB, Express.js, React, and Node.js to build robust and responsive applications. From designing efficient databases to creating intuitive user interfaces.I am always eager to tackle new challenges and stay at the forefront of web development trends.</p>
                                     <div className="flex items-center gap-x-3">
                                        
-                                        <a href="https://drive.google.com/uc?export=download&id=1OD1XMhwuy7-gycJEu5waBfHC1vDPKhkB" className="flex items-center py-3 gap-1  flex-nowrap  text-gray-900 hover:bg-[#0F1722] transition-all hover:text-white bg-primary   px-5 cursor-pointer font-semibold duration-500">
+                                        <a href="https://drive.google.com/file/d/1og5OZl4uG8JtJlRJNl3M8pfMTne4_xJi/view?usp=sharing"  className="flex items-center py-3 gap-1  flex-nowrap  text-gray-900 hover:bg-[#0F1722] transition-all hover:text-white bg-primary   px-5 cursor-pointer font-semibold duration-500">
                                             <LiaFileDownloadSolid /> Download CV
                                         </a>
                                     </div>
@@ -159,7 +177,8 @@ const Home = () => {
                             </div>
                             <div className="lg:col-span-5 order-1 lg:order-2">
                                 <div className="relative flex justify-center items-center">
-                                    <figure className="w-64 h-64 rounded-full bg-red-200 overflow-hidden">
+                                <FaReact size={120} className="text-primary absolute -top-16 hidden lg:block -left-3 animate-spin " />
+                                    <figure className="w-64 h-64 rounded-full  overflow-hidden">
                                         <img className={`w-64 h-64 rounded-full`} src="https://avatars.githubusercontent.com/u/99636383?v=4"  alt="Banner" />
                                     </figure>
                                 </div>
@@ -306,7 +325,7 @@ const Home = () => {
 
 
             <section id="projects" className="pt-10 pb-20">
-                <SectionTitle textAlign="center"  margin={'auto'} title={'Recent project'} subTitle={'My Complete Projects'} />
+                <SectionTitle textAlign="center"  margin={'auto'} title={'Recent project'} subTitle={'My Projects'} />
                
                 <div className="container lg:w-[1100px] px-5 md:px-0 mt-16">
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
